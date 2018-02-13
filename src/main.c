@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:19:52 by rhallste          #+#    #+#             */
-/*   Updated: 2018/02/12 16:46:46 by rhallste         ###   ########.fr       */
+/*   Updated: 2018/02/12 23:42:34 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ char *get_block(int fd, int block_size)
 	ft_bzero(buffer, block_size + 1);
 	while (prog < block_size &&
 		   (ret = read(fd, buffer + prog, block_size - prog)))
+	{
 		prog += ret;
+		ft_printf("ret: %d\n", ret);
+		ft_printf("buff: %s\n", buffer);
+	}
 	return ((prog > 0) ? ft_strdup(buffer) : NULL);
 }
 
@@ -48,20 +52,21 @@ int main(int argc, char **argv)
 		ft_printf("usage: ft_ssl command [command opts] [command args]\n");
 		return (0);
 	}
-	if (ft_strcmp(argv[1], "base64"))
+	fd = 0;
+	if (ft_strcmp(argv[1], "base64") == 0)
 	{
 		block_size = 3;
-		if ((fd = open(STDIN_FILENO, O_RDONLY)) == -1)
-		{
-			ft_printf_fd(2, "Error: Failed to open file\n");
-			return (-1);
-		}
+//		if ((fd = open(STDIN_FILENO, O_RDONLY)) == -1)
+//		{
+//			ft_printf_fd(2, "Error: Failed to open file\n");
+//			return (-1);
+//		}
 		while ((block = get_block(fd, block_size)))
 		{
-			output = base64(block);
+			output = base64_encode(block);
 			free(block);
 			block = NULL;
-			printf("%s", output);
+			ft_printf("%s", output);
 			free(output);
 		}
 		close(fd);

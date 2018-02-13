@@ -6,7 +6,7 @@
 #    By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 09:37:14 by rhallste          #+#    #+#              #
-#    Updated: 2018/02/12 16:33:35 by rhallste         ###   ########.fr        #
+#    Updated: 2018/02/12 22:23:52 by rhallste         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,12 +24,17 @@ FILES		=	$(BASE64) $(FT_SSL)
 SRCS		=	$(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJS		=	$(addprefix src/, $(addsuffix .o, $(FILES)))
 
+LIBFT		=	 inc/libft/libft.a
+
 all: $(NAME)
 
 $(OBJS): $(SRCS)
 
-$(NAME): $(OBJS)
+$(LIBFT):
 	@make -C inc/libft
+
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
@@ -41,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.SILENT: $(OBJS)
+.SILENT: $(OBJS) $(LIBFT)

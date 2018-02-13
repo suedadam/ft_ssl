@@ -6,13 +6,13 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 16:25:27 by rhallste          #+#    #+#             */
-/*   Updated: 2018/02/12 16:26:24 by rhallste         ###   ########.fr       */
+/*   Updated: 2018/02/12 22:25:12 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SSL_H
 # define FT_SSL_H
 
-char *base64(const char *input);
+char *base64_encode(const char *input);
 
 #endif
