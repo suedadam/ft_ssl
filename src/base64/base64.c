@@ -57,7 +57,7 @@ static char *base64_encode_block(const char *input)
 char *base64_encode(const char *input)
 {
 	char	*output;
-	size_t	len;
+	int		len;
 
 	len = ft_strlen(input);
 	output = base64_encode_block(input);
