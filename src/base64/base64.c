@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:41:41 by rhallste          #+#    #+#             */
-/*   Updated: 2018/02/12 16:44:00 by rhallste         ###   ########.fr       */
+/*   Updated: 2018/02/13 00:05:37 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char *base64_encode_block(const char *input)
 char *base64_encode(const char *input)
 {
 	char	*output;
-	size_t	len;
+	int		len;
 
 	len = ft_strlen(input);
 	output = base64_encode_block(input);
