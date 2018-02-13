@@ -6,7 +6,7 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:41:41 by rhallste          #+#    #+#             */
-/*   Updated: 2018/02/12 16:41:50 by rhallste         ###   ########.fr       */
+/*   Updated: 2018/02/12 16:44:00 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ char *base64_encode(const char *input)
 	return (output);
 }
 
-static char *base64_decode_block(const char *input)
-{
+/* static char *base64_decode_block(const char *input) */
+/* { */
 
-}
+/* } */
 
-char *base64_decode(const char *input)
-{
+/* char *base64_decode(const char *input) */
+/* { */
 
-}
+/* } */

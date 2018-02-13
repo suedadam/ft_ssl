@@ -6,13 +6,15 @@
 /*   By: rhallste <rhallste@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:19:52 by rhallste          #+#    #+#             */
-/*   Updated: 2018/02/12 16:42:09 by rhallste         ###   ########.fr       */
+/*   Updated: 2018/02/12 16:46:46 by rhallste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include "../inc/ft_ssl.h"
-#include "../inc/libft/libft.h"
+#include "../inc/libft/inc/libft.h"
 
 /*
  * block_size is size in bytes of amount to pass each function
@@ -62,6 +64,7 @@ int main(int argc, char **argv)
 			printf("%s", output);
 			free(output);
 		}
+		close(fd);
 	}
 	return (0);
 }
